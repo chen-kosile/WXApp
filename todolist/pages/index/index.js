@@ -75,8 +75,8 @@ Page({
     lists = lists.filter((item) => {
       if (status == 1 ) return true;
       if (status == 2 && item.status == 0) return true;
-      if (status == 3 && item.status == 1)
-      return true 
+      if (status == 3 && item.status == 1) return true;
+      return false;
     });
     console.log(lists);
 
@@ -85,6 +85,28 @@ Page({
       status: status,
       curLists: lists
     })
+  },
+  addTodoShow: function() {
+    let lists = this.data.lists;
+    let status = this.data.status;
+    // let curLists = this.data.curLists;
+    lists.push({
+      text: '跑步5公里',
+      status: 1
+    });
+    this.setData({
+      lists: lists,
+    })
+    let curLists = this.data.lists.filter((item) => {
+      if (status == 1 ) return true;
+      if (status == 2 && item.status == 0) return true;
+      if (status == 3 && item.status == 1) return true;
+      return false;
+    });
+    this.setData({
+      curLists: curLists
+    })
+    // console.log(this.data.lists);
   }
 
 })
