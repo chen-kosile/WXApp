@@ -4,3 +4,7 @@
   color: #999999;
   text-align: center;
 }
+.cart-pro-name {
+  /* text-align: center; */
+  
+}
