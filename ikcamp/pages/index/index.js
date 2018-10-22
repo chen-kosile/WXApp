@@ -1,5 +1,7 @@
 //index.js
 //获取应用实例
+import config from '../../utils/config'
+// console.log(config.defaultBarTitle);
 const app = getApp()
 
 Page({
@@ -22,7 +24,23 @@ Page({
       url: '../logs/logs'
     })
   },
+  showDetail: function (e) {
+    let dataset = e.currentTarget.dataset;
+    let item = dataset && dataset.item;
+    let contentId = item.contentId || 0;
+    wx.navigateTo({
+      url:`../detail/detail?contentId=${contentId}`
+    })
+  },
   onLoad: function () {
+    let title = config.defaultBarTitle;
+    console.log(config.test)
+    wx.setNavigationBarTitle({
+      title: title,
+      success: function(res){
+        // console.log(res);
+      }
+    })
    this.requestArticle();
   },
   getUserInfo: function(e) {
