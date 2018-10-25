@@ -1,3 +1,6 @@
 <van-button type="primary" square block bind:click="navigateToAdd">新增数据</van-button>
 <van-button type="primary" square block plain bind:click="navigateToIndex">数据列表</van-button>
 <van-button type="primary" square block bind:click="navigateToComplex">数据查询</van-button>
+<van-button type="primary" square block plain bind:click="navigateToDelete">删除数据</van-button>
+<van-button type="primary" square block bind:click="navigateToSelect">数据查询</van-button>
+

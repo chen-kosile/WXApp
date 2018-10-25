@@ -11,13 +11,11 @@ Page({
     // console.log('下拉更新');
     productsCollection.get().then(res => {
       this.setData({
-        products: res.data
-      }),
-      res => {
-        console.log('数据更新完成')
-        wx.stopPullDownRefresh()
-      }
+        products: res.data,
+      })
     })
+    console.log('数据更新完成')
+    wx.stopPullDownRefresh()
   },
   onReachBottom: function() {
     console.log('上拉加载更多');
