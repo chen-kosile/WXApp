@@ -1,2 +1,11 @@
-<!--miniprogram/pages/delete/delete.wxml-->
-<text>miniprogram/pages/delete/delete.wxml</text>
+<van-cell-group>
+    <van-field
+        value="{{}}"
+        placeholder="请输入要删除的文档ID"
+        border="{{false}}"
+        bind:change="onDelete">
+    </van-field>
+</van-cell-group>
+<van-button square type="primary" block bind:click="deleteData">
+    删除数据
+</van-button>

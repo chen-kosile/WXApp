@@ -5,6 +5,7 @@
     "pages/add/add",
     "pages/index/index",
     "pages/delete/delete",
+    "pages/change/change",
     "pages/select/select"
   ],
   "window": {

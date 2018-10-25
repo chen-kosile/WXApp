@@ -35,9 +35,37 @@ Page({
       }
     })
   },
-  navigateToComplex: function() {
+  navigateToSelect: function() {
     wx.navigateTo({
-      url: '../complex/complex',
+      url: '../select/select',
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+  },
+  navigateToDelete: function() {
+    wx.navigateTo({
+      url: '../delete/delete',
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+  },
+  navigateToChange: function() {
+    wx.navigateTo({
+      url: '../change/change',
       success: function(res){
         // success
       },

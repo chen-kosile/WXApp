@@ -1,6 +1,10 @@
 // miniprogram/pages/delete/delete.js
+const db = wx.cloud.database()
+const productsCollection = db.collection('products')
 Page({
-
+  deleteData: function() {
+    
+  },
   /**
    * 页面的初始数据
    */

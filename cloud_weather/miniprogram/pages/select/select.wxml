@@ -1,2 +1,3 @@
-<!--miniprogram/pages/select/select.wxml-->
-<text>miniprogram/pages/select/select.wxml</text>
+<van-button square type="primary" block bind:click="selectData">
+    查询数据
+</van-button>

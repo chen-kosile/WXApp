@@ -1,0 +1,3 @@
+<van-button square type="primary" block bind:click="changeData">
+    修改数据
+</van-button>
