@@ -8,6 +8,7 @@ const db = cloud.database();
 // async 同步 是函数修饰符, es7, 让异步的代码同步化
 exports.main = async () => {
   const photoInfos = [];
+  // const photos = db.collection('photos').get();
   const photos = await db.collection("photos").get();
   console.log("图片" + photos);
   for(let i = 0; i < photos.data.length; i++) {

@@ -1,6 +1,7 @@
 {
   "cloud": true,
   "pages": [
+    "pages/imageCheck/imageCheck",
     "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",

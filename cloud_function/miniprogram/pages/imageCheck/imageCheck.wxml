@@ -1,0 +1,3 @@
+<button class="btn" type="primary" bindtap="imgCheck">
+    图片识别
+</button>
