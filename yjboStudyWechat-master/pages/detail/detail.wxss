@@ -1,0 +1,12 @@
+/* pages/detail/detail.wxss */
+.mainview{
+  padding: 10px;
+}
+.split-line {
+  background: #f9f9f9;
+  height: 10px;
+}
+.split-line-text {
+  height: 20rpx;
+}
+

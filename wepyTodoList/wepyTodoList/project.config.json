@@ -1,0 +1,16 @@
+{
+	"description": "A WePY project",
+	"setting": {
+		"urlCheck": true,
+		"es6": false,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"uglifyFileName": false
+	},
+	"compileType": "miniprogram",
+	"appid": "wx67f286e9a19c3b0e",
+	"projectname": "wepytodolist",
+	"miniprogramRoot": "dist/",
+	"condition": {}
+}
