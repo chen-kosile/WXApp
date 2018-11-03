@@ -1,54 +1,104 @@
-//index.js
-//获取应用实例
-const app = getApp()
+let col1H = 0;
+let col2H = 0;
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    col1: [],
+    col2: [],
+    scrollH: 0,
+    imgWidth: 0,
+    loadingCount: 0,
+    images: []
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
+  onImageLoad (e) {
+    // console.log(e.detail.width, e.detail.height);
+    let imageId = e.currentTarget.id;
+    let oImgW = e.detail.width;
+    let oImgH = e.detail.height;
+    let imgWidth = this.data.imgWidth;
+    let scale = imgWidth / oImgW;
+    let imgHeight = oImgH * scale;
+
+    let images = this.data.images;
+    let imageObj = null;
+    for (let img of images) {
+      if (img.id === imageId) {
+        imageObj = img;
+        break;
+      }
+    }
+    // console.log(imageObj);
+    imageObj.height = imgHeight
+
+    let loadingCount = this.data.loadingCount -1 ;
+    
+    let col1 = this.data.col1;
+    let col2 = this.data.col2;
+    
+    if (col1H <= col2H) {
+      col1H += imgHeight;
+      col1.push(imageObj);
+    } else {
+      col2H += imgHeight;
+      col2.push(imageObj);
+    }
+
+    let data = {
+      loadingCount,
+      col1,
+      col2
+    }
+    if (!loadingCount) {
+      data.images = [];
+    }
+    this.setData(data);
+  },
+  onLoad() {
+    wx.getSystemInfo({
+      success: (res) => {
+        // success
+        let ww = res.windowWidth;
+        let wh = res.windowHeight;
+        // console.log(res);
+        let imgWidth = ww * 0.48;
+        // 图片大小， 在页面上显示的大小， 等比例的缩放
+        let scrollH = wh;
+        // console.log(scrollH);
+        this.setData({
+          scrollH: scrollH,
+          imgWidth: imgWidth
+        });
+        this.loadImages();
+      }
     })
   },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
+  loadImages() {
+    // image 有onload 事件 
+    let images = [
+      { pic: "../../images/1.png", height: 0},
+      { pic: "../../images/2.png", height: 0},
+      { pic: "../../images/3.png", height: 0},
+      { pic: "../../images/4.png", height: 0},
+      { pic: "../../images/5.png", height: 0},
+      { pic: "../../images/6.png", height: 0},
+      { pic: "../../images/7.png", height: 0},
+      { pic: "../../images/8.png", height: 0},
+      { pic: "../../images/9.png", height: 0},
+      { pic: "../../images/10.png", height: 0},
+      { pic: "../../images/11.png", height: 0},
+      { pic: "../../images/12.png", height: 0},
+      { pic: "../../images/13.png", height: 0},
+      { pic: "../../images/14.png", height: 0}
+    ];
+
+    let baseId = "img-" + (+new Date());
+    for (let i = 0; i < images.length; i++) {
+      images[i].id = baseId + "-" + i;
     }
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
+    // console.log(images);
     this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+      loadingCount: images.length,
+      images: images
     })
   }
 })

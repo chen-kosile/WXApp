@@ -1,21 +1,6 @@
-/**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 200px;
+.img_item {
+  width: 48%;
+  margin: 1%;
+  display: inline-block; /* 在一起  如果是html需要将fontsize设置为0否则会应为空格和换行符的原因导致无法在同一行*/
+  vertical-align: top; /*兄弟之间对其， */
 }
