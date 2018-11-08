@@ -5,6 +5,7 @@
 </view>
 <scroll-view scroll-y="{{true}}" style="height:{{scrollH}}px"
   bindscrolltolower="loadImages">
+
   <view style="width: 100%;">
     <view class="img_item">
       <view wx:for="{{col1}}" wx:key="index">
