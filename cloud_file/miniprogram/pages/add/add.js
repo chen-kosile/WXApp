@@ -18,7 +18,7 @@ Page({
       sourceType: ['album', 'camera'], // album 从相册选图，camera 使用相机，默认二者都有
       success: function(res){
         // success
-        // console.log(res);
+        console.log(res);
         const tempFilePaths = res.tempFilePaths;
         // 文件上传的流程
         for(let i = 0; i < tempFilePaths.length; i++){

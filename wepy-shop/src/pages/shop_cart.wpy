@@ -1,0 +1,19 @@
+<!--wxml -->
+<template>
+  <view></view>
+</template>
+<!--js -->
+<script>
+  import wepy from 'wepy'
+  export default class extends wepy.page{
+    
+  }
+</script>
+
+<!--wxss -->
+<style lang="less">
+  
+</style>
+
+
+<!--wxml -->
